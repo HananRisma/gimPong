@@ -9,7 +9,7 @@ public class bolascriptt : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello Game!");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(1,-1) * speed;
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(1,-1) * speed;
         
     }
 
@@ -19,9 +19,4 @@ public class bolascriptt : MonoBehaviour
    
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
-        if(other.collider.name=="rightWall" || other.collider.name=="leftWall"){
-            GetComponent<Transform>().position = new Vector2(0,0);
-        }
-    }
 }
