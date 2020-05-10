@@ -7,6 +7,7 @@ public class BolaMantul : MonoBehaviour
     public int speed = 10;
     public Rigidbody2D ball;
     public GameObject masterScript;
+    public AudioSource hitEffect;
 
     public Animator animtr;
     // Start is called before the first frame update
@@ -31,9 +32,12 @@ public class BolaMantul : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other.collider.name=="Kanan" || other.collider.name=="Kiri"){
+        if(other.collider.name=="RKanan" || other.collider.name=="RKiri"){
                     masterScript.GetComponent<ScoringScript>().UpdateScore(other.collider.name);
             StartCoroutine(jeda());
+        }
+        if(other.collider.tag=="Player"){
+            hitEffect.Play();
         }
     }
 
